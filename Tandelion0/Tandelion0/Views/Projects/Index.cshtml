@@ -1,0 +1,91 @@
+﻿@model IEnumerable<Tandelion0.Models.Project>
+
+@{
+    ViewBag.Title = "Project";
+}
+
+
+<h2>@ViewBag.Title</h2>
+
+<p Align="right">
+    @Html.ActionLink("Create New Project", "Create", "ControllerName", new { @class = "btn btn-primary" })
+</p>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>
+
+        </th>
+        <th scope="col" width="200">
+            @Html.DisplayName("Project Name")
+            @*@Html.DisplayNameFor(model => model.ProjectName)*@
+        </th>
+        @*<th scope="col" width="200">
+            @Html.DisplayName("Project Title")
+            @Html.DisplayNameFor(model => model.ProjectTitle)
+        </th>*@
+        <th scope="col" width="100">
+            @Html.DisplayName("Client")
+            @*@Html.DisplayNameFor(model => model.client)*@
+        </th>
+        <th>
+            @Html.DisplayName("No of Trade")
+            @*@Html.DisplayNameFor(model => model.NoTrade)*@
+        </th>
+        <th>
+            @Html.DisplayName("Start Date")
+            @*@Html.DisplayNameFor(model => model.StartDate)*@
+        </th>
+        <th>
+            @Html.DisplayName("Due Date")
+            @*@Html.DisplayNameFor(model => model.DueDate)*@
+        </th>
+        <th scope="col" width="150">
+            @Html.DisplayName("Timeline")
+            @*@Html.DisplayNameFor(model => model.Timeline)*@
+        </th>
+        
+        <th></th>
+    </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tbody>
+            <tr onclick="document.location = '@Url.Action( "Index", "Trades",  new { id = item.ID , ProjectName = item.ProjectName}, null) ';">
+                <td><img src="~/Image/Project/Ecohill.jpg" alt="" border="3" height="30" width="60"></td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProjectName)
+                </td>
+                @*<td style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:1px;">
+                    @Html.DisplayFor(modelItem => item.ProjectTitle)
+                </td>*@
+                <td style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:1px;">
+                    @Html.DisplayFor(modelItem => item.client)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NoTrade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DueDate)
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.Timeline)*@
+                    <div class='progress progress-striped'>
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 80%;">
+                            Progress
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { id = item.ID }) |*@
+                    @Html.ActionLink("Details", "Details", new { id = item.ID })
+                    @*@Html.ActionLink("Delete", "Delete", new { id = item.ID })*@
+                </td>
+            </tr>
+        </tbody>
+            }
+
+</table>

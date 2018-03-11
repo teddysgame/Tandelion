@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Tandelion0.Models.Tender>
+
+@{
+    ViewBag.Title = "Tender";
+}
+
+<h2>@ViewBag.Title</h2>
+
+    <p>
+        @Html.ActionLink("Create New Invitation", "Create")
+    </p>
+    <table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Trade Type")
+                @*@Html.DisplayNameFor(model => model.Trade.TradeType)*@
+            </th>
+            <th scope="col" width="200">
+                @Html.DisplayName("Subcon Name")
+                @*@Html.DisplayNameFor(model => model.CompanyName)*@
+            </th>
+            <th>
+                @Html.DisplayName("Person in Charge")
+                @*@Html.DisplayNameFor(model => model.PICName)*@
+            </th>
+            <th>
+                @Html.DisplayName("Designation")
+                @*@Html.DisplayNameFor(model => model.Designation)*@
+            </th>
+            <th>
+                @Html.DisplayName("Contact No")
+                @*@Html.DisplayNameFor(model => model.CompanyContactNo)*@
+            </th>
+            <th>
+                @Html.DisplayName("PIC HP")
+                @*@Html.DisplayNameFor(model => model.PICContactNo)*@
+            </th>
+            <th>
+                @Html.DisplayName("Status")
+                @*@Html.DisplayNameFor(model => model.Status)*@
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+            {
+        <tbody>
+            <tr onclick="document.location = '@Url.Action( "Index", "Invitations") ';">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Trade.TradeType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PICName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Designation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyContactNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PICContactNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+            </tbody>
+            }
+
+    </table>

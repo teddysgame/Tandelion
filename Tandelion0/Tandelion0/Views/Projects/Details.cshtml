@@ -1,0 +1,95 @@
+﻿@model Tandelion0.Models.Project
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h3>@Html.DisplayFor(model => model.ProjectName)</h3>
+
+<h5>@Html.DisplayFor(model => model.client)</h5>
+
+<style>
+    p.ex1 {
+        padding: 1cm 2.5cm 0cm 2.5cm;
+    }
+</style>
+
+<div>
+    <hr />
+    <div align="center" height="400px">
+        <img src="~/Image/Project/Ecohill.jpg" width="500" height="300" alt="" align="middle">
+    </div>
+
+    <p class="ex1">
+        @Html.DisplayFor(model => model.ProjectTitle)
+    </p>
+
+    @*<dl class="dl-horizontal">
+        @*<dt>
+            @Html.DisplayName("Project Name")
+        </dt>*@
+        @*<dd>
+            @Html.DisplayFor(model => model.ProjectName)
+        </dd>*@
+
+        @*<dt>
+            @Html.DisplayName("Client")
+        </dt>*@
+
+        @*<dd>
+            @Html.DisplayFor(model => model.client)
+        </dd>*@
+
+        @*<dt>
+            @Html.DisplayName("Project Title")
+        </dt>*@
+
+        @*<dd>
+            @Html.DisplayFor(model => model.ProjectTitle)
+        </dd>*@
+    @*</dl>*@
+
+        <hr />
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Start Date")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayName("Timeline")
+        </dt>*@
+
+        @*<dd>
+            @Html.DisplayFor(model => model.Timeline)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayName("Due Date")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DueDate)
+        </dd>
+
+
+
+        @*<dt>
+            @Html.DisplayName("No of Trade")
+        </dt>*@
+
+        @*<dd>
+            @Html.DisplayFor(model => model.NoTrade)
+        </dd>*@
+
+      </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Delete", "Delete", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,155 @@
+﻿@model Tandelion0.Models.Tender
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<style>
+    p.ex1 {
+        padding: 0.5cm 0cm 0cm 0cm;
+    }
+
+    sel {
+        background-color: #ffd659;
+    }
+</style>
+
+<script>
+    $("tr").not(':first').hover(
+
+   function () {
+       if (!$(this).hasClass("sel")) {
+           $(this).css("background", "#FFEFC6");
+       }
+   },
+  function () {
+      if (!$(this).hasClass("sel")) {
+          $(this).css("background", "");
+      }
+  }
+
+);
+
+    $("tr").click(function (e) {
+        $(this).css("background-color", "#ffd659");
+        //$("tr:eq("+$(this).index()+")").off("hover");
+
+        $(this).addClass("sel");
+    });
+</script>
+
+<h2>Select Tenderer</h2>
+
+<div>
+    <p Align="right">
+        <button type="button" class="btn btn-primary">Proceed to Summary</button>
+    </p>
+</div>
+
+<div class="row">
+    <div class="col-sm-1" align="left">
+        <img src="~/Image/Project/Ecohill.jpg" alt="" border="3" height="60" width="100">
+    </div>
+    <div class="col-sm-3">
+        <dl class="dl-horizontal">
+            <dt>
+                Project
+            </dt>
+            <dd>
+                Ecohill
+            </dd>
+            <dt>
+                Trade
+            </dt>
+            <dd>
+                Drainage
+            </dd>
+
+        </dl>
+    </div>
+
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container row">
+        <!--selected subcon column-->
+        <div class="container row col-sm-4">
+            <h4>
+                Selected Subcon
+            </h4>
+            
+            <div style="overflow-y: scroll; height:250px;">
+                <table class="table table-hover">
+
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!--frequent subcon column-->
+        <div class="container col-sm-4">
+            <h4>
+                Recently Selected Subcon
+            </h4>
+            
+            <div style="overflow-y: scroll; height:250px;">
+                <table class="table table-hover">
+                    
+                    @foreach (var item in Model.FrequentCompanyName)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CompanyName)
+                                </td>
+                                
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+            </div>
+            <p class="ex1" align="center">
+                <a href="#">Select All</a>
+                @*<button type="button" class="btn btn-primary">Select All</button>*@
+            </p>
+        </div>
+
+        <!--Suggested subcon column-->
+        <div class="container col-sm-4">
+            <h4>
+                Recommended Subcon
+            </h4>
+            @*<hr width="90%" align="left" />*@
+            @*<h5 align="center">Company name | Person-in-charge</h5>*@
+            <div style="overflow-y: scroll; height:250px;">
+                <table class="table table-hover">
+                    @foreach (var item in Model.SuggestCompanyName)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CompanyName)
+                                </td>
+                                
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+       
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

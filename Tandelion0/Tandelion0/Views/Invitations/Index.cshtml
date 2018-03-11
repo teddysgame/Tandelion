@@ -1,0 +1,104 @@
+﻿@model IEnumerable<Tandelion0.Models.Invitation>
+
+@{
+    ViewBag.Title = "Invitation";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+    @foreach (var item in Model)
+    {
+        <div>
+            <h4><span style="font-weight:bold">Project</span></h4>
+            <div class="d-flex w-100 justify-content-between">
+                <p style="height: 0px">
+                    @Html.DisplayFor(modelItem => item.Project.ProjectName)
+                </p>
+
+                <!--Toggle show button-->
+                <p align="right">
+                    <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Show Project Title
+                    </a>
+                </p>
+            </div>
+
+            <!-- Project title description -->
+            <div class="collapse" id="collapseExample">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit ve
+                </p>
+            </div>
+
+            <!--Message to Subcon-->
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1"><span style="font-weight:bold">Message</span></label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" cols="50" maxlength="50"></textarea>
+            </div>
+
+            <!-- Project title -->
+                <h6><span style="font-weight:bold">Attachments</span></h6>
+                <div class="d-flex w-100 justify-content-between">
+                    <p align="right">
+                        <a data-toggle="collapse" href="#collapseattachments" role="button" aria-expanded="false" aria-controls="collapseattachments">
+                            Show Attachments
+                        </a>
+                    </p>
+
+                <!-- Attachments -->
+                <div class="collapse" id="collapseattachments">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>1.</td>
+                                <td>File and attachments</td>
+                            </tr>
+                            <tr>
+                                <td>2.</td>
+                                <td>File and attachments</td>
+                            </tr>
+                            <tr>
+                                <td>3.</td>
+                                <td>File and attachments</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Submission -->
+            <div class="col-3">
+                <p>
+
+                </p>
+                <h6><span style="font-weight:bold">Subcon Submission</span></h6>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>1.</td>
+                            <td><a href="#">File and attachments</a></td>
+                        </tr>
+                        <tr>
+                            <td>2.</td>
+                            <td><a href="#">File and attachments</a></td>
+                        </tr>
+                        <tr>
+                            <td>3.</td>
+                            <td><a href="#">File and attachments</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+          <!-- Download all button -->
+                <div style="height: 70px">
+                    <a class="btn btn-primary buttonsize" href="#" role="button">Download all</a>
+                </div>
+            </div>
+        </div>
+
+    }
+
